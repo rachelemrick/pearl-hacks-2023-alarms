@@ -1,21 +1,27 @@
 package model;
 
-public class AlarmImpl {
+import java.sql.Time;
+
+public class AlarmImpl implements Alarm {
     // Fields
-    private int _hour;
-    private int _minute;
-    private int _second;
+    private Time _time;
+    private String _name;
 
     // Constructor
-    public AlarmImpl(int hour, int minute) {
-        // VP
-        if (hour > 24) {
-            throw new IllegalArgumentException("Tried to create alarm at an hour > 24");
-        }
-        _hour = hour;
-        _minute = minute;
-        _second = 0;
+    public AlarmImpl(Time time, String name) {
+        _time = time;
+        _name = name;
     }
 
     // Methods
+    @Override
+    public Time getTime() {
+        return _time;
+    }
+
+    @Override
+    public String getName() {
+        return _name;
+    }
+
 }
